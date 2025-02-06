@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "id": "batchforceblock",
+  "id": "batchforceload",
   "version": "${version}",
-  "name": "batchforceblock",
+  "name": "batchforceload",
   "description": "",
   "authors": ["harien"],
   "contact": {},
   "license": "MIT",
-  "icon": "assets/batchforceblock/icon.png",
+  "icon": "assets/batchforceload/icon.png",
   "environment": "server",
   "entrypoints": {
     "client": [
-      "com.harien.batchforceblock.client.BatchforceblockClient"
+      "com.harien.batchforceload.client.BatchforceloadClient"
     ],
     "main": [
-      "com.harien.batchforceblock.Batchforceblock"
+      "com.harien.batchforceload.Batchforceload"
     ]
   },
   "mixins": [
-    "batchforceblock.mixins.json",
+    "batchforceload.mixins.json",
     {
-      "config": "batchforceblock.client.mixins.json",
+      "config": "batchforceload.client.mixins.json",
       "environment": "client"
     }
   ],

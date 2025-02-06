@@ -38,5 +38,8 @@
 ## 注意事项
 * 目前该模组仅支持服务端，客户端在测试中。
 * 添加强制加载区块会影响服务器性能，请谨慎使用。
+* 在使用模组前，请先使用指令`/forceload remove all`移除所有强制加载区块，再使用本模组的指令。
+* 原版指令`/forceload query ~ ~`无法检测到使用本模组的指令添加的强制加载区块，请使用本模组的指令`/batchforceload query`查询。
+* 在同一纬度中，模组指令与原版指令不能混用，以免造成冲突。
 * 该模组的指令`/batchforceload add`和`batchforceload remove`系列指令仅在主世界有效，如果想在其他维度使用，请使用原版`/forceload`系列指令。
 * 卸载该模组后，模组配置文件依然保留在`config/batchforceload`文件夹中，请手动删除。

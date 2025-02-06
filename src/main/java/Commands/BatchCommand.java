@@ -96,12 +96,10 @@ public class BatchCommand {
         int chunkMaxX = maxX >> 4;
         int chunkMaxZ = maxZ >> 4;
 
-        int totalChunks = 0;
         for (int x = chunkMinX; x <= chunkMaxX; x++) {
             for (int z = chunkMinZ; z <= chunkMaxZ; z++) {
                 chunkManager.setChunkForced(new ChunkPos(x, z), true);// 强制加载区块
                 ChunkPosData.addChunk(new ChunkPos(x, z)); //保存区块坐标到数据文件中
-                totalChunks++;
             }
         }
         source.sendMessage(Text.literal("该矩形内区块已设置为强制加载区块").formatted(Formatting.GREEN));
@@ -133,12 +131,10 @@ public class BatchCommand {
         int chunkMaxX = maxX >> 4;
         int chunkMaxZ = maxZ >> 4;
 
-        int totalChunks = 0;
         for (int x = chunkMinX; x <= chunkMaxX; x++) {
             for (int z = chunkMinZ; z <= chunkMaxZ; z++) {
                 chunkManager.setChunkForced(new ChunkPos(x, z), false);// 删除强制加载区块
                 ChunkPosData.removeChunk(new ChunkPos(x, z)); // 从数据文件中移除区块坐标
-                totalChunks++;
             }
         }
         source.sendMessage(Text.literal("已移除该矩形内的强制加载区块").formatted(Formatting.GREEN));

@@ -14,7 +14,7 @@ loom {
     splitEnvironmentSourceSets()
 
     mods {
-        "batchforceblock" {
+        "batchforceload" {
             sourceSet sourceSets.main
             sourceSet sourceSets.client
         }
