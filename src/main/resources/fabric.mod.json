@@ -4,11 +4,11 @@
   "version": "${version}",
   "name": "batchforceblock",
   "description": "",
-  "authors": [],
+  "authors": ["harien"],
   "contact": {},
   "license": "MIT",
   "icon": "assets/batchforceblock/icon.png",
-  "environment": "*",
+  "environment": "server",
   "entrypoints": {
     "client": [
       "com.harien.batchforceblock.client.BatchforceblockClient"

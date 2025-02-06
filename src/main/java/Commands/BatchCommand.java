@@ -104,7 +104,7 @@ public class BatchCommand {
                 totalChunks++;
             }
         }
-        source.sendMessage(Text.literal("已添加 " + totalChunks + " 个强制加载区块").formatted(Formatting.GREEN));
+        source.sendMessage(Text.literal("该矩形内区块已设置为强制加载区块").formatted(Formatting.GREEN));
     }
 
     // 删除强制加载区块
@@ -141,14 +141,14 @@ public class BatchCommand {
                 totalChunks++;
             }
         }
-        source.sendMessage(Text.literal("已移除 " + totalChunks + " 个强制加载区块").formatted(Formatting.GREEN));
+        source.sendMessage(Text.literal("已移除该矩形内的强制加载区块").formatted(Formatting.GREEN));
     }
 
     // 查看已保存的强制加载区块坐标
     public static int QueryForceLoadChunk(CommandContext<ServerCommandSource> context) {
         ServerCommandSource source = context.getSource();
         String forceloadChunk = ChunkPosData.getLoadedChunks().toString(); // 加载已保存的区块坐标
-        source.sendMessage(Text.literal("已添加的强加载区块坐标: " + forceloadChunk).formatted(Formatting.GREEN));
+        source.sendMessage(Text.literal("已添加的强制加载区块坐标: " + forceloadChunk).formatted(Formatting.GREEN));
         return 1;
     }
 
@@ -156,12 +156,16 @@ public class BatchCommand {
     public static int QueryForceLoadNum(CommandContext<ServerCommandSource> context) {
         ServerCommandSource source = context.getSource();
         String forceloadNum = String.valueOf(ChunkPosData.getLoadedChunks().size()); // 加载已保存的区块数量
-        source.sendMessage(Text.literal("已添加的强加载区块数量: " + forceloadNum).formatted(Formatting.GREEN));
+        source.sendMessage(Text.literal("已添加的强制加载区块数量: " + forceloadNum).formatted(Formatting.GREEN));
         return 1;
     }
 
     // 查看玩家所处区块是否被强制加载
     public static int QueryPlayerChunk(CommandContext<ServerCommandSource> context) {
+        if (context.getSource().getWorld().getRegistryKey() != ServerWorld.OVERWORLD) {
+            context.getSource().sendMessage(Text.literal("请在主世界执行该命令").formatted(Formatting.RED));
+            return 0;
+        }
         BlockPos pos = Objects.requireNonNull(context.getSource().getEntity()).getBlockPos();
 
         int chunkX = pos.getX() >> 4;
